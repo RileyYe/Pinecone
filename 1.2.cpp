@@ -19,11 +19,7 @@ int max2(const vector<int>& vctr) //遍历比较
     }
     return max;
 }
-int max3(const vector<int>& vctr)//sort后取出最后一个元素
-{
-    sort(vctr.begin(),vctr.end());
-    return vctr.back();
-}
+
 int main() {
     //从键盘输入四个整数，并输出其中大的数
     int a, b, c, d;
