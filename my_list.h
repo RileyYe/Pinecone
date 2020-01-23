@@ -65,10 +65,4 @@ public:
 		str1 += str2.substr(1);
 		return str1;
 	}
-	int& operator+(const int int1)
-	{
-		int int2 = int();
-		int2 += int1;
-		return int2;
-	}
 };
