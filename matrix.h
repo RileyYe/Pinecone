@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <ostream>
-using std::cout; using std::endl;
 using std::vector; using std::ostream;
 class matrix
 {
