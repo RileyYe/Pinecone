@@ -9,12 +9,12 @@ private:
 	vector<vector<double>> v1;
 
 public:
-	matrix(vector<vector<double>> v1)	//¹¹Ôìº¯Êı
+	matrix(vector<vector<double>> v1)	//æ„é€ å‡½æ•°
 	{
 		this->v1 = v1;
 	}
-	int row = int(), column = int();	//ĞĞ£¬ÁĞ
-	auto& operator+=(matrix m2)	//¾ØÕó×Ô¼Ó
+	int row = int(), column = int();	//è¡Œï¼Œåˆ—
+	auto& operator+=(matrix m2)	//çŸ©é˜µè‡ªåŠ 
 	{
 		auto v2 = m2.v1;
 		row = v1.size();
@@ -28,7 +28,7 @@ public:
 		}
 		return v1;
 	}
-	friend ostream& operator<<(ostream& os1, const matrix& m2)	//ÖØÔØ<<
+	friend ostream& operator<<(ostream& os1, const matrix& m2)	//é‡è½½<<
 	{
 		for (auto i : m2.v1)
 		{
@@ -40,7 +40,7 @@ public:
 		}
 		return os1;
 	}
-	auto& operator+(const matrix& m2)	//ÖØÔØ+
+	auto& operator+(const matrix& m2)	//é‡è½½+
 	{
 		auto temp = this->v1;
 		row = temp.size();
@@ -54,7 +54,7 @@ public:
 		}
 		return temp;
 	}
-	auto& operator[](const int& ele)	//ÖØÔØ[]
+	auto& operator[](const int& ele)	//é‡è½½[]
 	{
 		return v1[ele];
 	}
@@ -64,10 +64,3 @@ public:
 	//	row = temp.size();
 	//}
 };
-int main()
-{
-	matrix m1({ {1.0,2.1},{3.2,4.7} });
-	matrix m2 = m1;
-	m2 += m1;
-	cout << m2;
-}
