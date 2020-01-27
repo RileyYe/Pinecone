@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <ostream>
 using std::vector; using std::ostream;
@@ -9,11 +8,11 @@ private:
 
 public:
 	matrix(vector<vector<double>> v1)	//构造函数
-	{
+	{ 
 		this->v1 = v1;
 	}
 	int row = int(), column = int();	//行，列
-	auto& operator+=(matrix m2)	//矩阵自加
+	auto operator+=(const matrix& m2)	//矩阵自加
 	{
 		auto v2 = m2.v1;
 		row = v1.size();
@@ -33,13 +32,13 @@ public:
 		{
 			for (auto j : i)
 			{
-				os1 << j << "		";
+				os1 << j << "\t";
 			}
-			os1 << endl;
+			os1 << "\n\n";
 		}
 		return os1;
 	}
-	auto& operator+(const matrix& m2)	//重载+
+	auto operator+(const matrix& m2)	//重载+
 	{
 		auto temp = this->v1;
 		row = temp.size();
@@ -53,13 +52,30 @@ public:
 		}
 		return temp;
 	}
-	auto& operator[](const int& ele)	//重载[]
+	auto operator[](const int& ele)	//重载[]
 	{
 		return v1[ele];
 	}
-	//matrix operator*(const matrix& m2)
-	//{
-	//	auto temp = this->v1;
-	//	row = temp.size();
-	//}
+	void operator*=(const double& num)
+	{
+		for (auto &i :	v1)
+		{
+			for (auto &j : i)
+			{
+				j *= num;
+			}
+		}
+	}
+	matrix operator*(const double& num)        
+	{
+		matrix temp(this->v1);
+		for (auto& i : temp.v1)
+		{
+			for (auto& j : i)
+			{
+				j *= num;
+			}
+		}
+		return temp;
+	}
 };
