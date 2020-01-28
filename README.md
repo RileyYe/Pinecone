@@ -1,2 +1,2 @@
-写着玩的，不一定加新功能。
-All were written for fun, optimizations and new characteristics are not necessarily to be finished.
+江月去人只数尺，风灯照夜欲三更。
+沙头宿鹭联拳静，船尾跳鱼拨剌鸣。
