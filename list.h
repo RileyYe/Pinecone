@@ -148,3 +148,14 @@ public:
 
     }
 };
+/*
+初始化 ：   1. list lst = list({});
+	        2. list lst = list({"i100","f3.14","sHello"});
+类属性 ：length(int)，此list的长度.
+类方法 ：append()， 往list中添加元素(string, double, int)
+	    query(int index)，获取list中索引为index的数字元素.
+	    pop()， 弹出list中最后一位元素.
+操作符 ：list[int]，获取list[int]的元素，元素类型为string；
+                    如果int >= length || int < 0，显示 index out of range.
+	    std::cout << list， 按次序打印出list中所有元素.
+*/
