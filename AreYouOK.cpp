@@ -1,5 +1,4 @@
 #include <Windows.h>
-#include <ctime>
 #include <string>
 using namespace std;
 class Page
@@ -27,7 +26,7 @@ public:
 	void Move(int x, int y)
 	{
 		auto fScreenWidth = (double)(::GetSystemMetrics(SM_CXSCREEN) - 1);
-		auto fScreenHeight =(double)(::GetSystemMetrics(SM_CYSCREEN) - 1);
+		auto fScreenHeight = (double)(::GetSystemMetrics(SM_CYSCREEN) - 1);
 		double fx = x * (65535.0f / fScreenWidth);
 		double fy = y * (65535.0f / fScreenHeight);
 		INPUT  Input = { 0 };
@@ -73,22 +72,23 @@ public:
 	}
 	void Open(string url)
 	{
-		string temp = command+url;
+		string temp = command + url;
 		system((temp.c_str()));
 	}
 	void MoveClick(int x, int y)
 	{
 		Move(x, y);
 		Click();
+		Sleep(100);
 	}
 	Page(string url)
 	{
 		this->url = url;
-		string temp = command+url;
+		string temp = command + url;
 		system((temp.c_str()));
 	}
 };
-void progress(string id, string password, int code,string temprature)
+void progress(string id, string password, int code, string temprature)
 {
 	string url = "http://eos.suda.edu.cn/default/work/suda/jkxxtb/jkxxcj.jsp";
 	Page page = Page(url);
@@ -157,9 +157,9 @@ void progress(string id, string password, int code,string temprature)
 }
 int main()
 {
-	progress("1234567890","SUDA12345678",2,"36.5");
+	progress("1234567890", "SUDA12345678", 2, "36.5");
 	/*0.  只针对1920*1080的PC，其他分辨率自行改坐标，
-        或者不要尝试！不要尝试！不要尝试！不要尝试！
+		或者不要尝试！不要尝试！不要尝试！不要尝试！
 		1.	progress中四个参数分别表示学号、密码、地区代码、打卡体温；
 		2.	password中的小写字母必须大写，暂不支持输入包含大写字母的字符串；
 		3.	地区代码如下
