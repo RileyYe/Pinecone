@@ -79,7 +79,6 @@ public:
 	{
 		Move(x, y);
 		Click();
-		Sleep(100);
 	}
 	Page(string url)
 	{
