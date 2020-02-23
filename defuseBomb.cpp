@@ -1,7 +1,5 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
-#include <cstdio>
-#include <conio.h>
 class Square
 {
 public:
@@ -9,17 +7,6 @@ public:
     int nearBombNum = int();
     bool hidden = true;
     bool fence = false;
-    int chosen()
-    {
-        if (hasBomb == true)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
     std::string print()
     {
         if (fence == false)
@@ -36,7 +23,7 @@ public:
                 }
                 else
                 {
-                    return std::to_string(nearBombNum)+" ";
+                    return std::to_string(nearBombNum) + " ";
                 }
 
             }
@@ -58,13 +45,27 @@ void show(Square map[6][6])
         std::cout << std::endl;
     }
 }
+int count(Square map[6][6])
+{
+    int num = int();
+    for (int i = 0; i <= 5; i++)
+    {
+        for (int j = 0; j <= 5; j++)
+        {
+            if (map[i][j].hidden == false && map[i][j].fence == false)
+            {
+                num += 1;
+            }
+        }
+    }
+    return num;
+}
 int main()
 {
     Square map[6][6];
     map[1][2].hasBomb = true;
     map[2][3].hasBomb = true;
     map[3][2].hasBomb = true;
-    int bombNum = 3;
     for (int x = 0; x <= 5; x++)
     {
         for (int y = 0; y <= 5; y++)
@@ -98,14 +99,14 @@ int main()
         }
     }
 
-    int x = int(), y = int(), times = 0;
+    int x = int(), y = int();
     for (;;)
     {
         show(map);
         std::cin >> x;
         std::cin >> y;
-        map[x+1][y+1].hidden = false;
-        if (map[x+1][y+1].hasBomb)
+        map[x + 1][y + 1].hidden = false;
+        if (map[x + 1][y + 1].hasBomb)
         {
             system("cls");
             show(map);
@@ -115,17 +116,15 @@ int main()
         }
         else
         {
-            map[x+1][y+1].hidden = false;
-            times += 1;
+            map[x + 1][y + 1].hidden = false;
             system("cls");
-        }
-        if (times == 13)
-        {
-            show(map);
-            std::cout << std::endl << "成了" << std::endl;
-            system("pause");
-            exit(0);
+            if (count(map) == 13)
+            {
+                show(map);
+                std::cout << std::endl << "成了" << std::endl;
+                system("pause");
+                exit(0);
+            }
         }
     }
 }
-
