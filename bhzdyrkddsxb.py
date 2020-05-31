@@ -2,7 +2,6 @@
 import requests
 
 
-
 def GetCorpus(FileName: str) -> dict:
     Map = dict()
     File = open(FileName, encoding="UTF-8")
