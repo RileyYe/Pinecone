@@ -2,7 +2,6 @@
 import requests
 
 
-
 def GetMap(FileName: str) -> dict:
     Map: dict = dict()
     File = open(FileName, encoding="UTF-8")
