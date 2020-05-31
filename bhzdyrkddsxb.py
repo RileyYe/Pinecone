@@ -12,7 +12,7 @@ def GetMap(FileName: str) -> dict:
 
 def MaxMatchAndTransfer(Corpus: dict, Text: str) -> str:
     max_len: int = max([len(item) for item in Corpus.keys()])
-    Transferred: list = []
+    Transformed: list = []
     Start: int = 0
     while Start != len(Text):
         Index = Start + max_len
@@ -20,15 +20,15 @@ def MaxMatchAndTransfer(Corpus: dict, Text: str) -> str:
             Index = len(Text)
         for i in range(max_len):
             if Corpus.get(Text[Start:Index]) is None and len(Text[Start:Index]) == 1:
-                Transferred.append(Text[Start:Index])
+                Transformed.append(Text[Start:Index])
                 Start = Index
                 break
             if Corpus.get(Text[Start:Index]) is not None:
-                Transferred.append(Corpus[Text[Start:Index]])
+                Transformed.append(Corpus[Text[Start:Index]])
                 Start = Index
                 break
             Index += -1
-    return "".join(Transferred)
+    return "".join(Transformed)
 
 
 def DownloadCorpus(Url: str, FileName: str) -> None:
