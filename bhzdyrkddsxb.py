@@ -2,8 +2,9 @@
 import requests
 
 
-def GetCorpus(FileName: str) -> dict:
-    Map = dict()
+
+def GetMap(FileName: str) -> dict:
+    Map: dict = dict()
     File = open(FileName, encoding="UTF-8")
     for Items in File.readlines():
         Map[Items.split()[0]] = Items.split()[1]
@@ -11,9 +12,9 @@ def GetCorpus(FileName: str) -> dict:
 
 
 def MaxMatchAndTransfer(Corpus: dict, Text: str) -> str:
-    max_len = max([len(item) for item in Corpus.keys()])
-    Transferred = []
-    Start = 0
+    max_len: int = max([len(item) for item in Corpus.keys()])
+    Transferred: list = []
+    Start: int = 0
     while Start != len(Text):
         Index = Start + max_len
         if Index > len(Text):
@@ -31,10 +32,15 @@ def MaxMatchAndTransfer(Corpus: dict, Text: str) -> str:
     return "".join(Transferred)
 
 
+def DownloadCorpus(Url: str, FileName: str) -> None:
+    r = requests.get(Url)
+    with open(FileName, "wb") as Corpus:
+        Corpus.write(r.content)
+
+
 Text: str = "我他妈笑死，有一说一，真的有够阴阳怪气的呢.\n是漂亮姐姐啊，啊我死了。"
 
-Url = r"https://gitee.com/RileyYe/Pinecone/raw/master/cppHomework/Corpus.txt"
-r = requests.get(Url)
-with open("Corpus.txt", "wb") as Corpus:
-    Corpus.write(r.content)
-print(MaxMatchAndTransfer(GetCorpus("Corpus.txt"), Text))
+Url: str = r"https://gitee.com/RileyYe/Pinecone/raw/master/cppHomework/Corpus.txt"
+
+DownloadCorpus(Url, "Corpus.txt")
+print(MaxMatchAndTransfer(GetMap("Corpus.txt"), Text))
