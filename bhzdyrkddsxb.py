@@ -10,7 +10,7 @@ def GetMap(FileName: str) -> dict:
     return Map
 
 
-def MaxMatchAndTransfer(Corpus: dict, Text: str) -> str:
+def MaxMatchAndTransform(Corpus: dict, Text: str) -> str:
     max_len: int = max([len(item) for item in Corpus.keys()])
     Transformed: list = []
     Start: int = 0
@@ -42,4 +42,4 @@ Text: str = "我他妈笑死，有一说一，真的有够阴阳怪气的呢.\n�
 Url: str = r"https://gitee.com/RileyYe/Pinecone/raw/master/cppHomework/Corpus.txt"
 
 DownloadCorpus(Url, "Corpus.txt")
-print(MaxMatchAndTransfer(GetMap("Corpus.txt"), Text))
+print(MaxMatchAndTransform(GetMap("Corpus.txt"), Text))
