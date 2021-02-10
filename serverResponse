@@ -1,0 +1,38 @@
+{"stores": [
+      {
+          "pic_url": "http://s3.ax1x.com/2021/01/31/yVZ8Vx.jpg",
+          "name":"肯德基",
+          "id": 0,
+          "contact":"123456",
+          "location":"鼓楼北路333号万达广场4层4062A"
+      },
+      {
+        "pic_url": "http://s3.ax1x.com/2021/01/31/yVZ1q1.jpg",
+        "name":"酸汤牛肉",
+        "id": 1,
+        "contact":"123456",
+        "location":"鼓楼北路万达广场121号"
+      },
+      {
+        "pic_url": "https://s3.ax1x.com/2021/02/01/yVUDIS.jpg",
+        "name":"淮南牛肉汤",
+        "id": 2,
+        "contact":"123456",
+        "location":"鼓楼北路万达广场221号"
+      },
+      {
+        "pic_url": "https://s3.ax1x.com/2021/02/01/yVUsPg.jpg",
+        "name":"烧烤",
+        "id": 3,
+        "contact":"123456",
+        "location":"鼓楼北路万达广场101号"
+      },
+      {
+        "pic_url": "https://s3.ax1x.com/2021/02/01/yVUBa8.jpg",
+        "name":"味千拉面",
+        "id": 4,
+        "contact":"123456",
+        "location":"鼓楼北路万达广场11号"
+      }
+    ]
+  }
